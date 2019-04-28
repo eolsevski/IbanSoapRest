@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.homework.com/xml/iban"
+           targetNamespace="http://www.homework.com/xml/iban" elementFormDefault="qualified">
+
+    <xs:element name="IbanValidationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Iban" type="tns:IbanList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="IbanValidationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Iban" type="tns:IbanList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="IbanList">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="iban" >
+                <xs:complexType>
+                    <xs:sequence >
+                        <xs:element name="iban" type="xs:string"/>
+                        <xs:element name="valid" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
